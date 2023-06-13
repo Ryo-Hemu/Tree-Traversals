@@ -8,6 +8,7 @@ class TreeNode:
         self.right = right
 
 
+# Iterative Solution
 class Solution:
     def preorderTraversal(self, root):
         if not root:
@@ -21,3 +22,14 @@ class Solution:
             if current.left:
                 stack.append(current.left)
         return result
+
+
+class SolutionRecursive:
+    def preorderTraversal(self, root):
+        if not root:
+            return []
+        return (
+            [root.val]
+            + self.preorderTraversal(root.left)
+            + self.preorderTraversal(root.right)
+        )
